@@ -1,0 +1,25 @@
+
+Written using CGI 5 October 1987 by Ron Record (rr@ronrecord.com)
+Rewritten using X11 20 Apr 1993 by Ron Record (rr@ronrecord.com)
+
+This program uses bouncing balls as control points for generating
+cubic curves. Two methods are used to calculate the curve. One, the
+Bezier form for defining a cubic, uses n control points with
+the tangent vectors at the endpoints being defined by the line
+segments between control points. The other, referred to as the
+B-spline cubic representation, doesn't pass thru any control points.
+In the B-spline, the points where the curve "joins" and their derivatives
+are weighted sums of the three immediately adjacent control points.
+
+From "Fundamentals of Interactive Computer Graphics" by Foley and Van Dam :
+"This terminology traces back to the long flexible strips of metal, 
+called splines, used by draftsmen to lay out the surfaces of airplanes 
+and ships. The metal splines, unless severely stressed, also have second-order
+continuity."
+
+From "Principles of Interactive Computer Graphics" by Newman and Sproull :
+"P. Bezier, of the French firm Regie Renault, pioneered the use of computer
+modeling of surfaces in automobile design. His UNISURF system, used by
+designers since 1972, has been applied to define the outer panels of several
+cars marketed by Renault."
+

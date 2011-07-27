@@ -1,0 +1,179 @@
+.TH SPLINES LOCAL
+.SH NAME
+splines \- displays bouncing balls used as control points for a spline curve
+.SH SYNOPSIS
+.in +8n
+.ti -8n
+\fIsplines\fR
+[-abefrsuxBEFIRTW][-w width][-h height][-o filename][-m index][-c colorwheel][-n count][-N nballs][-l limit][-p nsteps][-D delay][-S naptime][-X xradius][-Y yradius]
+.in -8n
+.SH DESCRIPTION
+\fIsplines\fR
+Randomly places the specified number of control points  and sets each of them 
+off on a randomly calculated linear trajectory. The balls bounce off of the 
+walls and are used as control points for either a B-spline or Bezier spline 
+curve.
+.SH OPTIONS
+.TP 8
+-a
+selects display of control points only (no spline curve)
+.TP
+-B
+Indicates use of the Bezier spline rather than the B-spline
+.TP
+-b
+selects display of spline curve only (no control points)
+.TP
+-c \fIn\fP
+Selects one of many different color wheels to use. The default color
+wheel is a rainbow palette.
+.TP
+-D \fIdelay\fP
+Specifies the length of delay to use when spinning the color wheel
+.TP
+-E
+Indicates to erase the previous control points as the new ones are drawn, 
+displaying only the current control points
+.TP
+-e
+Indicates to erase the previous curve as the new one is drawn, displaying
+only the current spline curve
+.TP
+-F
+Indicates to use the full screen
+.TP
+-f
+Indicates to not use fill mode, drawing control points as circles rather 
+than disks
+.TP
+-I
+Indicates use of the Infinite mode. There is no limit to the number of 
+curves drawn
+.TP
+-w \fIn\fP
+Specifies the width of the window. Default is 512.
+.TP
+-h \fIn\fP
+Specifies the height of the window. Default is 512.
+.TP
+-l \fIn\fP
+Specifies the number of successive curves to draw before starting a new 
+sequence or exiting. Default is width x height.
+.TP
+-m \fIn\fP
+Specifies the minimum color index to be used for the  upper end of the color
+wheel
+.TP
+-n \fInumpics\fP
+Specifies how many sequences of curves to compute before exiting. During display
+(see NOTES below), pressing 'n' or 'N' will skip to the next map.
+.TP
+-N \fInballs\fP
+Specifies how many control points to simultaneously compute and display
+.TP
+-o \fIfilename\fP
+Specifies the output filename to be used. If the -o option is given, this
+file will automatically be written out at the completion of the drawing.
+If it is not specified, a default filename of splines.ppm is used and only
+written if the 'f' or 'F' keys are pressed during a run. The format of the
+output file is PPM. The parameters used to calculate the picture are included 
+as comments at the beginning of the output file.
+.TP
+-p \fInsteps\fP
+Specifies how many steps to use in the spline curve computation. Default is 50
+.TP
+-R
+Indicates the display will be in the root window. In this mode, the  default
+color map will be used and no spinning of the color wheel is possible.
+.TP
+-W
+Indicates the control points will perform a pseudo-random walk
+.TP
+-r
+Specifies random selection of modes and parameters
+.TP
+-S /fInaptime\fP
+Specifies the interval to delay between drawing curves
+.TP
+-s
+Indicates to spin the color wheel immediately upon completion of display.
+.TP
+-u
+Produces a usage message.
+.TP
+-X \fIradius\fP
+Specifies the length of X-axis of the control points. Default is 5.
+.TP
+-x
+Indicates not to use XOR as drawing mode (no erasing)
+.TP
+-Y \fIradius\fP
+Specifies the length of Y-axis of the control points. Default is 4.
+.TP
+.sp 2
+.SH NOTES
+.sp
+During display, use of the keys 
+\fI+-><bBcCdDeEfFgGiIkKLnNpPrRsSwWxX?hqQ\fP
+indicates:
+.sp
+.ti 10
+(>) Increment delay between curve drawings.
+.ti 10
+(<) Decrement delay between curve drawings.
+.ti 10
+(+) Increment minimum color index.
+.ti 10
+(-) Decrement minimum color index.
+.ti 10
+(b or B) Toggles use of Bezier and B-spline algorithms
+.ti 10
+(c) Clears the window
+.ti 10
+(C) Create another control point, preserving the existing ones.
+.ti 10
+(d or D) Decrements or increments the delay used when spinning the color wheel
+.ti 10
+(e or E) Erase the spline curve or control points as you go
+.ti 10
+(f or F) Save the current window to a file in PPM format
+.ti 10
+(g or G) Toggle drawing control points as circles or disks
+.ti 10
+(i or I) Toggle checking for exceeding the limit on number of curves
+.ti 10
+(k or K) Toggle display of control points or spline curves
+.ti 10
+(L) Delete one of the control points
+.ti 10
+(n or N) Skip to the next series of splines.
+.ti 10
+(p or P) Decrement or increment the number of steps per spline curve
+.ti 10
+(R) Toggle pseudo-random walk of control points
+.ti 10
+(S) Stop spinning the color wheel
+.ti 10
+(s) Spin the color wheel in the positive direction.
+.ti 10
+(r) Spin the color wheel in the negative direction.
+.ti 10
+(W or w) Increment or decrement the color map index.
+.ti 10
+(x) Toggle drawing between XOR and COPY modes
+.ti 10
+(X) Erase the existing control points and restart the computation and display
+.ti 10
+(Q or q) quit
+.sp 2
+.SH AUTHOR
+.nf
+        Ronald Joe Record
+        rr@ronrecord.com
+.fi
+.sp 2
+.SH ACKNOWLEDGEMENTS
+.PP
+The original bouncing ball program was written by Gever Tulley in CGI.
+Assistance with colormaps and spinning color wheels and X was gleaned 
+from Hiram Clawson and Stacey Campbell.

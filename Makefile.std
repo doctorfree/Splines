@@ -1,0 +1,25 @@
+CC = cc  
+CFLAGS = -O
+LIBS = -lm -lX11
+DESTBIN = /usr/bin/X11
+DESTMAN = /usr/man/manl
+
+splines: splines.o
+	$(CC) $(CFLAGS) -o splines splines.o $(LIBS)
+
+splines.o: splines.c splines.h patchlevel.h
+	$(CC) $(CFLAGS) -c splines.c
+
+install: splines
+	cp splines $(DESTBIN)/splines;
+	cd $(DESTBIN); chmod 755 splines
+
+install.man:
+	cp splines.man $(DESTMAN)/splines.l; chmod 644 $(DESTMAN)/splines.l
+      
+clean:
+	rm -f splines splines.o core
+
+uninstall:
+	cd $(DESTBIN); rm -f splines
+	rm -f $(DESTMAN)/splines.l

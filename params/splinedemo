@@ -1,0 +1,6 @@
+:
+# A demo script which starts the splines program up in "infinite" mode.
+# It will randomly pick parameters and run for a while then reparamaterize.
+# In order to run this on the root window, invoke as "splinedemo -R"
+
+splines -l 1000 -n -1 -r $*

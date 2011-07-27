@@ -1,0 +1,9 @@
+echo "Making tags files"
+make tags
+echo "Backing up previous shar file, if any"
+[ -f splines.shar ] && mv splines.shar splines.shar-
+echo "Creating new man page if necessary"
+[ -f splines.LOCAL ] || nroff -man splines.man > splines.LOCAL
+echo "Creating new shar file"
+shar COPYING README Imakefile Makefile.std Package *.c *.h *.LOCAL *.man tags TAGS > splines.shar
+echo "Done"

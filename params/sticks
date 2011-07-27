@@ -1,0 +1,6 @@
+:
+# A script which starts the splines program up in line_erase mode.
+# In order to run this on the root window, invoke as "sticks -R"
+# To run in demo mode, use "sticks -l 4096" or some such
+
+splines -e -L -b $*

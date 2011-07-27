@@ -1,0 +1,8 @@
+:
+# A script which starts the splines program up in delayed erase mode
+# with several strips of spinning splines.
+#
+# In order to run this on the root window, invoke as "strips -R"
+# To run in demo mode, use "strips -l 4096" or some such
+
+splines -F -N 6 $*

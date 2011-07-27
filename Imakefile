@@ -1,0 +1,44 @@
+/*************************************************************************
+ *                                                                       *
+ * Copyright (c) 1992, 1993 Ronald Joe Record                           *
+ *                                                                       *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *************************************************************************/
+
+#
+#	Imakefile for splines, by Ron Record
+#
+        DEPLIBS = $(DEPXLIB)
+#		 BINDIR = /usr/local/bin
+	  SPLINEDIR = $(DESTDIR)/usr/local/mathrec/splines
+#         MANDIR = /usr/local/man/man1
+      MANSUFFIX = 1
+#	Uncomment the following line if your system doesn't support prototypes 
+#    PROTODEFINE = -D_NO_PROTO
+        DEFINES = $(PROTODEFINE)
+       INCLUDES = -I. -I../libXrr
+         CFLAGS = -O $(DEFINES) $(INCLUDES) $(CDEBUGFLAGS)
+LOCAL_LIBRARIES = ../libXrr/libXrr.a $(XLIB)
+  SYS_LIBRARIES = -lm $(NAPLIB)
+
+           SRCS = splines.c
+           OBJS = splines.o
+
+SimpleProgramTarget(splines)
+
+install:: install.man
+	@if [ ! -d $(SPLINEDIR) ]; then mkdir -p $(SPLINEDIR); fi
+	@cd ./params; set -x; for file in *; do \
+		$(INSTALL) -c $(INSTBINFLAGS) $$file $(SPLINEDIR); \
+	done

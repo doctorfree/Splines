@@ -1,0 +1,5 @@
+:
+# A script which starts the splines program up in line drawing mode.
+# In order to run this on the root window, invoke as "lines -R"
+
+splines -L -N 8 -M 256 -s -l 4096 $*

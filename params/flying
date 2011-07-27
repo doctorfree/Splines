@@ -1,0 +1,6 @@
+:
+# A script which starts the splines program up in delayed erase mode.
+# In order to run this on the root window, invoke as "flying -R"
+# To run in demo mode, use "flying -l 4096" or some such
+
+splines -M 64 $*
